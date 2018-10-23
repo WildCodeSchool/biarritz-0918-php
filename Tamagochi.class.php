@@ -38,6 +38,13 @@ class Tamagochi
     {
         $this->fullness -= _FULLNESS_DELTA;
     }
+
+    public function tick()
+    {
+        $this->happiness -= _HAPPINESS_DELTA;
+        $this->tiredness += _TIREDNESS_DELTA;
+        $this->hungriness += _HUNGRINESS_DELTA;
+    }
 }
 
 function OK($msg)
@@ -47,8 +54,32 @@ function OK($msg)
 
 function KO($msg)
 {
-    echo "[x] Test fail : $msg \n";
+    echo "[❌] Test fail : $msg \n";
     throw new Exception($msg);
+}
+
+function test_tick()
+{
+    $t = new Tamagochi([
+    "hungriness" => 50,
+    "tiredness" => 50,
+    "happiness" => 50]);
+
+    $oldHappiness = $t->happiness;
+    $oldTiredness = $t->tiredness;
+    $oldHungriness = $t->hungriness;
+    $t->tick();
+    $expectedHappiness = $t->happiness;
+    $expectedTiredness = $t->tiredness;
+    $expectedHungriness = $t->hungriness;
+
+    if ($expectedHappiness === $oldHappiness - _HAPPINESS_DELTA &&
+     $expectedTiredness === $oldTiredness + _TIREDNESS_DELTA &&
+     $expectedHungriness === $oldHungriness + _HUNGRINESS_DELTA) {
+        OK("Tamagochi::tick is working as expected");
+    } else {
+        KO("Tamagoshi::tick is not working");
+    }
 }
 
 function test_feedingTamagochi()
@@ -124,9 +155,9 @@ function test_poop()
     $expectedFullness = $t->fullness ;
 
     if ($expectedFullness === $oldFullness - _FULLNESS_DELTA) {
-        ok("Tamagochi::poop is working as expected");
+        OK("Tamagochi::poop is working as expected");
     } else {
-        ko("Tamagoshi::poop is not working");
+        KO("Tamagoshi::poop is not working");
     }
 }
 
@@ -139,6 +170,7 @@ function test()
     test_puttingToBed();
     test_play();
     test_poop();
+    test_tick();
 }
 
 

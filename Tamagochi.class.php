@@ -5,6 +5,46 @@ const _FULLNESS_DELTA = 10;
 const _TIREDNESS_DELTA = 10;
 const _HAPPINESS_DELTA = 10;
 
+
+// $tamagochi = [
+//     "hungriness" => 50,
+//     "fullness" => 50,
+//     "tiredness" => 50,
+//     "happiness" => 50
+// ];
+
+// function applyDelta($props, $delta)
+// { CLOSURE
+//     return function ($tama) use($props, $delta) {
+//         $newT = $tama;
+//         $newT[$props] += $delta;
+//         return $newT;
+//     };
+// }
+
+// $increaseHappiness = applyDelta('happiness', _HAPPINESS_DELTA);
+// $increaseFullness = applyDelta('fullness', _FULLNESS_DELTA);
+
+// $deacreaseHapiness = applyDelta('happiness', -_HAPPINESS_DELTA);
+
+
+
+// function feed($t)
+// {
+//     return $decreaseHungriness($increaseFullness($t));
+//     return $increaseFullness($decreaseHungriness($t));
+// }
+
+
+
+// function bed($t)
+// {
+//     global $increaseFullness, $deacreaseHapiness;
+//     return $increaseHappiness($increaseFullness($t));
+// }
+
+// $tamagochi = bed($tamagochi);
+
 class Tamagochi
 {
     public $hungriness;
@@ -44,6 +84,11 @@ class Tamagochi
         $this->happiness -= _HAPPINESS_DELTA;
         $this->tiredness += _TIREDNESS_DELTA;
         $this->hungriness += _HUNGRINESS_DELTA;
+    }
+
+    public function setHappiness($hapiness)
+    {
+        $this->happiness = $hapiness;
     }
 }
 
@@ -113,6 +158,7 @@ function test_puttingToBed()
     ]);
     $oldTiredness = $t->tiredness;
     $t->bed();
+    $t->feed();
     $expecTiredness = $t->tiredness;
     
     

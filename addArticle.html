@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add an article</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form style="display: flex; flex-direction: column; align-items: center;" action="postArticle.route.php" method="POST">
+        title : <input type="text" name="title"> body : <input type="text" name="body"> createdAt : <input type="date" name="createdAt">        updatedAt:
+        <input type="date" name="updatedAt"> isPublished: <input type="radio" name="isPublished"> id : <input type="number"
+            name="id"> Envoyer : <input type="submit">
+    </form>
+</body>
+
+</html>

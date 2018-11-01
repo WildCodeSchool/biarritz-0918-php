@@ -9,6 +9,7 @@ final class ItemTest extends TestCase
     public function testCanInstanciateAnItemWithoutCrashing(): void
     {
         $item = new Item([
+            'name' => 'watch',
             'value' => 3,
             'volume' => 2,
         ]);

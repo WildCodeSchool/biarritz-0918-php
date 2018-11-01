@@ -2,7 +2,7 @@
   "scripts": {
     "autoload": "@composer dumpautoload",
     "test": [
-      "phpunit --bootstrap vendor/autoload.php --testdox ./**/*.test.php"
+      "phpunit --bootstrap vendor/autoload.php --testdox ./tests/"
     ],
     "start": [
       "(sleep 5s && xdg-open http://localhost:3000) & php -S localhost:3000 -t ."

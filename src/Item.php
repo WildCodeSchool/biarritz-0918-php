@@ -5,8 +5,8 @@ namespace App;
 
 class Item
 {
-    private $value;
-    private $volume;
+    public $value;
+    public $volume;
 
     /**
      * An Item is a value and a volume
@@ -14,7 +14,7 @@ class Item
      * @param int $opts.value the value of the item
      * @param int $opts.volume the volume of the item
      */
-    public function __construct($opts)
+    public function __construct(array $opts)
     {
         $this->value = $opts['value'];
         $this->volume = $opts['volume'];

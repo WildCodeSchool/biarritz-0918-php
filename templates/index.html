@@ -10,16 +10,18 @@
 
 <body>
     <section class="items">
+        <header> Items </header>
         {% for item in items %}
         {{ include("renderItem.html") }}
         {% endfor %}
     </section>
-    {# <section class="bags">
+    <section class="bags">
+        <header> Bags </header>
         {% for bag in bags %}
-        {{ bag.render() }}
+        {{ include("renderBag.html") }}
         {% endfor %}
     </section>
-    <section class="problems">
+    {# <section class="problems">
         {% for problem in problems %}
         {{ problem.render() }}
         {% endfor %}

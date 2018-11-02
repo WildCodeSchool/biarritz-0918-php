@@ -21,4 +21,18 @@ class Item
         $this->value = $opts['value'];
         $this->volume = $opts['volume'];
     }
+
+    public function render()
+    {
+        $name = $this->name;
+        $value = $this->value;
+        $volume = $this->volume;
+        return <<<EOT
+<ul class="knp__item">
+    <li>${name}</li>
+    <li>${value} €</li>
+    <li>${volume} L</li>
+</ul>
+EOT;
+    }
 }

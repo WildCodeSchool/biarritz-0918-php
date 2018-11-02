@@ -21,11 +21,12 @@
         {{ include("renderBag.html") }}
         {% endfor %}
     </section>
-    {# <section class="problems">
+    <section class="problems">
+        <header> Problems </header>
         {% for problem in problems %}
-        {{ problem.render() }}
+        {{ include("renderProblem.html") }}
         {% endfor %}
-    </section> #}
+    </section>
 </body>
 
 </html>

@@ -22,7 +22,7 @@ class Item
         $this->volume = $opts['volume'];
     }
 
-    public function render()
+    public function render(): string
     {
         $name = $this->name;
         $value = $this->value;

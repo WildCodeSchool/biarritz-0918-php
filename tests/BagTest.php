@@ -13,4 +13,17 @@ final class BagTest extends TestCase
             new Bag(10)
         );
     }
+
+    public function testCanRenderABag(): void
+    {
+        $bag = new Bag(10);
+        $expectedRender = <<<EOT
+<ul class="knp__bag">
+    <li>10 L</li>
+</ul>
+EOT;
+        $this->assertEquals(
+            $bag->render(), $expectedRender
+        );
+    }
 }

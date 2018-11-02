@@ -12,14 +12,4 @@ class Bag
     {
         $this->volume = $volume;
     }
-
-    public function render(): string
-    {
-        $volume = $this->volume;
-        return <<<EOT
-<ul class="knp__bag">
-    <li>${volume} L</li>
-</ul>
-EOT;
-    }
 }

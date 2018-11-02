@@ -2,17 +2,27 @@
 
 require_once "vendor/autoload.php";
 
-use App\Page;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
+use App\Bag;
+use App\Item;
 
-// create a log channel
-$log = new Logger('WAT');
-$log->pushHandler(new StreamHandler('warning.log'));
+$loader = new Twig_Loader_Filesystem('./templates');
+$twig = new Twig_Environment($loader);
 
-// add records to the log
-$log->warning('Foo');
-$log->error('Bar');
+$items = array(
+    new Item([
+        'name' => 'gold',
+        'value' => 3,
+        'volume' => 1,
+    ]),
+);
 
-$p = new Page('Welcom');
-$log->warning($p->getTitle());
+$bags = array(
+    new Bag(10),
+);
+
+echo $twig->render('index.html', array(
+    'title' => 'Knapsack Problem',
+    'items' => $items,
+    'bags' => $bags,
+    'problems' => array(),
+));

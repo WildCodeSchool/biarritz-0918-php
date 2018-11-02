@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <section class="items">
+        {% for item in items %}
+        {{ include("renderItem.html") }}
+        {% endfor %}
+    </section>
+    {# <section class="bags">
+        {% for bag in bags %}
+        {{ bag.render() }}
+        {% endfor %}
+    </section>
+    <section class="problems">
+        {% for problem in problems %}
+        {{ problem.render() }}
+        {% endfor %}
+    </section> #}
+</body>
+
+</html>
